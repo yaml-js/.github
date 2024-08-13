@@ -26,6 +26,7 @@ body:
       value:
     validations:
       required: false
+    render: markdown
   - type: textarea
     id: solution
     attributes:
@@ -34,6 +35,7 @@ body:
       value:
     validations:
       required: true
+    render: markdown
   - type: textarea
     id: solution
     attributes:
@@ -42,3 +44,4 @@ body:
       value:
     validations:
       required: false
+    render: markdown
