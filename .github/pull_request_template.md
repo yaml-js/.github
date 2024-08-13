@@ -1,12 +1,12 @@
 # Description
 
-[Include a summary of the changes and the related issues. Please also include relevant motivation and context and list dependencies that are required for this change]
+> _Include a summary of the changes and the related issues. Please also include relevant motivation and context and list dependencies that are required for this change_
 
 ## Issue ticket(s)
 - #<NUMBER>
 
 ## Type of change
-Please delete options that are not relevant.
+> _Please delete options that are not relevant._
 
 - Bug fix (non-breaking change which fixes an issue)
 - New feature (non-breaking change which adds functionality)
@@ -17,7 +17,7 @@ Please delete options that are not relevant.
 - Build related changes
 - Documentation content changes
 - Tests
-- Other: <PLEASE DETAIL>
+- Other: _< add details >_
 
 ## Checklist before requesting a review
 - [ ] I have performed a self-review of my code
