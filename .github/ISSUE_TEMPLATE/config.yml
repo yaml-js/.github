@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Bug Report
+    url: form_bug_report.md
+    about: Something isn't working as expected? Create a report to help us improve.
+  - name: Feature Request 
+    url: form_feature_request.md
+    about: Suggest a new idea or feature.
+  - name: New Work Item
+    url: form_work_item.md
+    about: Create a new work item, and add it to the backlog.
