@@ -10,7 +10,7 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
-  - type: drowpdown
+  - type: dropdown
     id: priority
     attributes:
       label: Priority
@@ -19,31 +19,30 @@ body:
         - Low
         - Normal
         - High
-    default: 0
     validations:
       required: true
   - type: textarea
     id: initiative
     attributes:
+      render: markdown
       label: Initiative / Goal
       description: Describe how this work item impacts an initiative the business is working on.
-    render: markdown
     validations:
       required: true
   - type: textarea
     id: description
     attributes:
+      render: markdown
       label: Description
       description: Whether it's a larger project, goal, or user story, describe the job to be done, which persona this is mainly for, or if more multiple, break it down by user and job story.
-    render: markdown
     validations:
       required: true
   - type: textarea
     id: acceptance_criteria
     attributes:
+      render: markdown
       label: Acceptance Criteria and Must Have Scope
       description: Define what is a must-have for launch and in-scope. Keep this section fluid and dynamic until you lock-in priority during planning.
-    render: markdown
     validations:
       required: true
   - type: dropdown
@@ -58,6 +57,5 @@ body:
         - 3 months
         - 1 month
         - 2 weeks
-    default: 0
     validations:
       required: true

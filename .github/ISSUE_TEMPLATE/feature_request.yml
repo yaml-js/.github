@@ -21,27 +21,28 @@ body:
   - type: textarea
     id: issue_related
     attributes:
+      render: markdown
       label: Is your feature request related to a problem? Please describe.
       placeholder: A clear and concise description of what the problem is.
       value:
     validations:
       required: false
-    render: markdown
   - type: textarea
     id: solution
     attributes:
+      render: markdown
       label: Describe the solution you'd like.
       placeholder: A clear and concise description of what you want to happen.
       value:
     validations:
       required: true
-    render: markdown
   - type: textarea
-    id: solution
+    id: additional_context
     attributes:
+      render: markdown
       label: Additional context
       placeholder: Add any other context or screenshots about the feature request here.
       value:
     validations:
       required: false
-    render: markdown
+
