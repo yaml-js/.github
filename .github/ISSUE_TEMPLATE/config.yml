@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Bug Report
-    url: bug_report.md
+    url: bug_report.yml
     about: Something isn't working as expected? Create a report to help us improve.
   - name: Feature Request 
-    url: feature_request.md
+    url: feature_request.yml
     about: Suggest a new idea or feature.
   - name: New Work Item
-    url: work_item.md
+    url: work_item.yml
     about: Create a new work item, and add it to the backlog.
