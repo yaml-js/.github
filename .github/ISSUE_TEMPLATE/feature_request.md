@@ -1,20 +1,47 @@
----
 name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
-
----
-
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
-
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+description: Suggest an idea for this project.
+title: "[Feature Request]: <title>"
+labels: ["Feature Request", "Needs Triage"]
+projects: ["yaml-js"]
+assignees:
+  - pedromvgomes
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to submit your idea!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: issue_related
+    attributes:
+      label: Is your feature request related to a problem? Please describe.
+      placeholder: A clear and concise description of what the problem is.
+      value:
+    validations:
+      required: false
+    render: markdown
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like.
+      placeholder: A clear and concise description of what you want to happen.
+      value:
+    validations:
+      required: true
+    render: markdown
+  - type: textarea
+    id: solution
+    attributes:
+      label: Additional context
+      placeholder: Add any other context or screenshots about the feature request here.
+      value:
+    validations:
+      required: false
+    render: markdown

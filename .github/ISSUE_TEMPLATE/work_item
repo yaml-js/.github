@@ -1,0 +1,63 @@
+name: Work Item
+description: Submmit new Work Item.
+title: "[Work Item]: <title>"
+labels: ["Work Item", "Backlog"]
+projects: ["yaml-js"]
+assignees:
+  - pedromvgomes
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: drowpdown
+    id: priority
+    attributes:
+      label: Priority
+      multiple: false
+      options:
+        - Low
+        - Normal
+        - High
+    default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: initiative
+    attributes:
+      label: Initiative / Goal
+      description: Describe how this work item impacts an initiative the business is working on.
+    render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Whether it's a larger project, goal, or user story, describe the job to be done, which persona this is mainly for, or if more multiple, break it down by user and job story.
+    render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria and Must Have Scope
+      description: Define what is a must-have for launch and in-scope. Keep this section fluid and dynamic until you lock-in priority during planning.
+    render: markdown
+    validations:
+      required: true
+  - type: dropdown
+    id: timeline
+    attributes:
+      label: Timeline
+      description: What's the target date to deliver this work item.
+      multiple: false
+      options:
+        - 12 months or more
+        - 6 months
+        - 3 months
+        - 1 month
+        - 2 weeks
+    default: 0
+    validations:
+      required: true
