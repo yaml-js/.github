@@ -10,41 +10,57 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
-    attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
-  - type: textarea
-    id: what-happened
-    attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
-    validations:
+  body:
+- type: checkboxes
+  attributes:
+    label: Is there an existing issue for this?
+    description: Please search to see if an issue already exists for the bug you encountered.
+    options:
+    - label: I have searched the existing issues
       required: true
-  - type: input
-    id: version
-    attributes:
-      label: Version
-      description: What version of our software are you running?
-      placeholder: v0.1.0
-    validations:
-      required: true
-  - type: textarea
-    id: reproduction
-    attributes:
-      label: Describe how we can reproduce the issue
-      placeholder: Please add detailed information on how we can reproduce the issue.
-    validations:
-      required: true
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
+- type: textarea
+  attributes:
+    label: Current Behavior
+    description: A concise description of what you're experiencing.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Expected Behavior
+    description: A concise description of what you expected to happen.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Steps To Reproduce
+    description: Steps to reproduce the behavior.
+    placeholder: |
+      1. In this environment...
+      1. With this config...
+      1. Run '...'
+      1. See error...
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Environment
+    description: |
+      examples:
+        - **OS**: Ubuntu 20.04
+        - **Node**: 13.14.0
+        - **browser**: Chrome 127.0.6533.100 (Official Build) (arm64)
+    value: |
+        - OS:
+        - Node:
+        - ...
+    render: markdown
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Anything else?
+    description: |
+      Links? References? Anything that will give us more context about the issue you are encountering!
+      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
+  validations:
+    required: false
