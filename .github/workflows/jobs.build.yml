@@ -17,7 +17,7 @@ jobs:
     name: Initialize CI environment
     uses: yaml-js/.github/.github/workflows/jobs.initialize-ci@main
     with:
-      KEY: ${{ github.sha }}
+      KEY: ${{ inputs.KEY }}
 
   build:
     needs: [initialize]
