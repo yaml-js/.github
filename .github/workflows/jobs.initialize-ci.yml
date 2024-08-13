@@ -1,0 +1,34 @@
+name: Initialize CI environment
+on:
+  workflow_call:
+    inputs:
+      KEY:
+        required: true
+        type: string
+
+jobs:
+  initialize:
+    name: Initialize CI environment
+    runs-on: ubuntu-latest
+    steps:
+    - name: Enable Corepack
+      run: corepack enable
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22.x
+    - uses: actions/cache/restore@v4
+      id: restore-cache-workspace
+      with:
+        path: ./*
+        key: ${{ inputs.KEY }}-workspace
+    - name: Install dependencies
+      if: steps.restore-cache-workspace.outputs.cache-hit != 'true'
+      run: yarn install
+    - uses: actions/cache/save@v4
+      if: steps.restore-cache-workspace.outputs.cache-hit != 'true'
+      with:
+        path: ./*
+        key: ${{ inputs.KEY }}-workspace
