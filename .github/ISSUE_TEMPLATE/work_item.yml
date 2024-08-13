@@ -1,7 +1,7 @@
 name: Work Item
 description: Submmit new Work Item.
 title: "[Work Item]: <title>"
-labels: ["Work Item", "Backlog"]
+labels: ["enhancement", "backlog"]
 projects: ["yaml-js"]
 assignees:
   - pedromvgomes

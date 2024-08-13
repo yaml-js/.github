@@ -1,7 +1,7 @@
 name: Bug Report
 description: File a bug report.
 title: "[Bug]: <title>"
-labels: ["Bug", "Needs Triage"]
+labels: ["bug", "needs triage"]
 projects: ["yaml-js"]
 assignees:
   - pedromvgomes
@@ -14,12 +14,12 @@ body:
         ---
         
         Thank you for taking the time to file a bug report. To address this bug as fast as possible, we need some information.
-  - type: checkboxes
+  - type: dropdown
     attributes:
       label: Is there an existing issue for this?
       description: Please search to see if an issue already exists for the bug you encountered.
       options:
-      - label: I have searched the existing issues
+      - I have searched the existing issues
     validations:
       required: true
   - type: textarea
@@ -36,6 +36,7 @@ body:
       render: markdown
     validations:
       required: true
+        - type: textarea
   - type: textarea
     attributes:
       label: Steps To Reproduce
