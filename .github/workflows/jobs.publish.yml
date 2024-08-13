@@ -35,10 +35,10 @@ jobs:
       with:
         node-version: 22.x
     - uses: actions/cache/restore@v4
-      id: restore-cache-build
+      id: restore-cache-workspace
       with:
         path: ./*
-        key: ${{ inputs.KEY }}-build
+        key: ${{ inputs.KEY }}-workspace
     - name: Bump Version of package.json
       uses: ramonpaolo/bump-version@v2.3.1
       with:
