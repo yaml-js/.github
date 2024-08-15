@@ -8,6 +8,10 @@ on:
       REF_NAME:
         required: true
         type: string
+      INSTALL_DEPENDENCIES:
+        required: false
+        type: boolean
+        default: true
     secrets:
       NPMJS_ACCESS_TOKEN:
         required: true
@@ -18,6 +22,7 @@ jobs:
     uses: yaml-js/.github/.github/workflows/jobs.initialize-ci.yml@main
     with:
       KEY: ${{ inputs.KEY }}
+      INSTALL_DEPENDENCIES: ${{ inputs.INSTALL_DEPENDENCIES }}
 
   publish:
     needs: [initialize]
