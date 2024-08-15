@@ -5,6 +5,10 @@ on:
       KEY:
         required: true
         type: string
+      INSTALL_DEPENDENCIES:
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   initialize:
@@ -25,7 +29,7 @@ jobs:
         path: ./*
         key: ${{ inputs.KEY }}-workspace
     - name: Install dependencies
-      if: steps.restore-cache-workspace.outputs.cache-hit != 'true'
+      if: steps.restore-cache-workspace.outputs.cache-hit != 'true' && inputs.INSTALL_DEPENDENCIES == true
       run: yarn install
     - uses: actions/cache/save@v4
       if: steps.restore-cache-workspace.outputs.cache-hit != 'true'
