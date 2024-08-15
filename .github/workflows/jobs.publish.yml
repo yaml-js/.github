@@ -40,11 +40,10 @@ jobs:
         path: ./*
         key: ${{ inputs.KEY }}-workspace
     - name: Bump Version of package.json
-      uses: ramonpaolo/bump-version@v2.3.1
+      uses: yaml-js/build/github-actions/update-package-version@v1
       with:
         tag: ${{ inputs.REF_NAME }}
-        commit: false
-        path: ./packages/vite-plugin/package.json
+        path: ./**/package.json
     - name: Publish Packages
       run: yarn deploy
       env:
