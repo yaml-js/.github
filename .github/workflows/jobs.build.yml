@@ -72,6 +72,7 @@ jobs:
         key: ${{ inputs.KEY }}-final
 
   sonarcloud:
+    needs: [unit-tests]
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
