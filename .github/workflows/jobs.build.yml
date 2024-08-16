@@ -11,7 +11,10 @@ on:
     secrets:
       GIST_TOKEN:
         required: true
-
+      SONAR_TOKEN:
+        required: true
+      GITHUB_TOKEN:
+        required: true
 jobs:
   initialize:
     name: Initialize CI environment
@@ -69,6 +72,23 @@ jobs:
         path: ./*
         key: ${{ inputs.KEY }}-final
 
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: actions/cache/restore@v4
+        with:
+          path: ./*
+          key: ${{ inputs.KEY }}-final
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
   coverage-reports:
     permissions:
       pull-requests: write
