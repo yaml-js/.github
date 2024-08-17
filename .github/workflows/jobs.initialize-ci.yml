@@ -25,7 +25,7 @@ jobs:
               repo: context.repo.repo,
             })
             for (const cache of caches.data.actions_caches) {
-              if (cache.id.startsWith("${{ inputs.KEY }}")) {
+              if (cache.key.startsWith("${{ inputs.KEY }}")) {
                 github.rest.actions.deleteActionsCacheById({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
