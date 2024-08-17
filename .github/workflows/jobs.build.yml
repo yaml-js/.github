@@ -13,11 +13,14 @@ on:
         required: true
       SONAR_TOKEN:
         required: true
+      REPO_ACCESS_TOKEN:
+        required: true
 
 jobs:
   initialize:
     name: Initialize CI environment
     uses: yaml-js/.github/.github/workflows/jobs.initialize-ci.yml@main
+    secrets: inherit
     with:
       KEY: ${{ inputs.KEY }}
 
