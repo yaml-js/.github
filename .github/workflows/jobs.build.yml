@@ -30,6 +30,8 @@ jobs:
       run: corepack enable
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
@@ -53,8 +55,6 @@ jobs:
     steps:
     - name: Enable Corepack
       run: corepack enable
-    - name: Checkout
-      uses: actions/checkout@v4
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
@@ -76,18 +76,15 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - uses: actions/cache/restore@v4
-        with:
-          path: ./*
-          key: ${{ inputs.KEY }}-final
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - uses: actions/cache/restore@v4
+      with:
+        path: ./*
+        key: ${{ inputs.KEY }}-final
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           
   coverage-reports:
     permissions:
@@ -99,8 +96,6 @@ jobs:
     steps:
     - name: Enable Corepack
       run: corepack enable
-    - name: Checkout
-      uses: actions/checkout@v4
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
