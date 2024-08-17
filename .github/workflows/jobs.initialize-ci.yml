@@ -9,36 +9,8 @@ on:
         required: false
         type: boolean
         default: true
-    secrets:
-      REPO_ACCESS_TOKEN:
-        required: true
 
-jobs:
-  clear_cache:
-    name: Clear Cache
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clear cache
-        uses: actions/github-script@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-        with:
-          script: |
-            console.log("About to clear")
-            const caches = await github.rest.actions.getActionsCacheList({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            })
-            for (const cache of caches.data.actions_caches) {
-              if (cache.key.startsWith("${{ inputs.KEY }}")) {
-                github.rest.actions.deleteActionsCacheById({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  cache_id: cache.id,
-                })
-              }
-            }
-            
+jobs:            
   initialize:
     name: Initialize CI environment
     runs-on: ubuntu-latest
