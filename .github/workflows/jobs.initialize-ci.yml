@@ -9,6 +9,9 @@ on:
         required: false
         type: boolean
         default: true
+    secrets:
+      REPO_ACCESS_TOKEN:
+        required: true
 
 jobs:
   clear_cache:
@@ -17,6 +20,8 @@ jobs:
     steps:
       - name: Clear cache
         uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         with:
           script: |
             console.log("About to clear")
