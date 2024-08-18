@@ -22,6 +22,7 @@ jobs:
   initialize:
     name: Initialize CI environment
     uses: yaml-js/.github/.github/workflows/jobs.initialize-ci.yml@main
+    secrets: inherit
     with:
       KEY: ${{ inputs.KEY }}
       INSTALL_DEPENDENCIES: ${{ inputs.INSTALL_DEPENDENCIES }}
