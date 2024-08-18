@@ -9,6 +9,9 @@ on:
         required: false
         type: boolean
         default: true
+    secrets:
+      REPO_ACCESS_TOKEN:
+        required: true
 
 jobs:            
   initialize:
