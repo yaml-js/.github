@@ -29,7 +29,7 @@ jobs:
       uses: yaml-js/build/github-actions/clear-cache@v1
       with:
         prefix: ${{ inputs.KEY }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
     - name: Install dependencies
       if: steps.restore-cache-workspace.outputs.cache-hit != 'true' && inputs.INSTALL_DEPENDENCIES == true
       run: yarn install
