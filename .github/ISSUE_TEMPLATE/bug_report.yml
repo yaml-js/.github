@@ -9,7 +9,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Before opening a bug report, please search for the behaviour in the existing issues. 
+        Before you open a bug report, please search for the behavior in the existing issues. 
       
         ---
         
@@ -52,18 +52,15 @@ body:
   - type: textarea
     attributes:
       label: Environment
-      description: |
+      description: Details on the environment where the defect was identified
+      render: markdown
+      placeholder: |
         examples:
           - **OS**: Ubuntu 20.04
           - **Node**: 13.14.0
           - **browser**: Chrome 127.0.6533.100 (Official Build) (arm64)
-      render: markdown
-      value: |
-          - OS:
-          - Node:
-          - ...
     validations:
-      required: true
+      required: false
   - type: textarea
     attributes:
       label: Anything else?
