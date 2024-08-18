@@ -25,16 +25,14 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 22.x
-    - uses: actions/cache/restore@v4
-      id: restore-cache-workspace
+    - name: Clear Cache
+      uses: uses: yaml-js/build/github-actions/clear-cache@v1
       with:
-        path: ./*
-        key: ${{ inputs.KEY }}-workspace
+        prefix: ${{ inputs.KEY }}
     - name: Install dependencies
       if: steps.restore-cache-workspace.outputs.cache-hit != 'true' && inputs.INSTALL_DEPENDENCIES == true
       run: yarn install
     - uses: actions/cache/save@v4
-      if: steps.restore-cache-workspace.outputs.cache-hit != 'true'
       with:
         path: ./*
         key: ${{ inputs.KEY }}-workspace
