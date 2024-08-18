@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: 22.x
     - name: Clear Cache
-      uses: uses: yaml-js/build/github-actions/clear-cache@v1
+      uses: yaml-js/build/github-actions/clear-cache@v1
       with:
         prefix: ${{ inputs.KEY }}
     - name: Install dependencies
