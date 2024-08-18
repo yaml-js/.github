@@ -24,15 +24,7 @@ A modern replacement for `.env` files using YAML syntax. This tool provides seam
   - Easy integration with existing JavaScript/TypeScript projects.
   - Built-in support for environment variables and overrides.
 
-### 3. **[@yaml-js/config-manager](https://github.com/yaml-js/config-manager)**
-A utility to manage configuration files in YAML, allowing dynamic loading and merging of multiple YAML files.
-
-- **Features**:
-  - Merge configurationsfiles.
-  - Validate and type-check configurations.
-  - Hot-reload configurations in development environments.
-
-### 4. **[@yaml-js/schema](https://github.com/yaml-js/schema)**
+### 3. **[@yaml-js/schema](https://github.com/yaml-js/schema)**
 A lightweight schema validation tool for YAML files, making it easier to enforce structure and constraints within your YAML configurations.
 
 - **Features**:
