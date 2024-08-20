@@ -105,7 +105,7 @@ jobs:
     permissions:
       pull-requests: write
     needs: [unit-tests]
-    if: $ {{ inputs.EVENT }} == 'pull_request'
+    if: inputs.EVENT == 'pull_request'
     name: Code Coverage Reports
     runs-on: ubuntu-latest
     steps:
