@@ -11,9 +11,13 @@ on:
       EVENT:
         required: true
         type: string
-    secrets:
-      GIST_TOKEN:
+      BUILD_COMMAND:
         required: true
+        type: string
+      TEST_COMMAND:
+        required: true
+        type: string
+    secrets:
       SONAR_TOKEN:
         required: true
       REPO_ACCESS_TOKEN:
@@ -30,6 +34,8 @@ jobs:
         echo "KEY: ${{ inputs.KEY }}"
         echo "REF: ${{ inputs.REF }}"
         echo "EVENT: ${{ inputs.EVENT }}"
+        echo "BUILD_COMMAND: ${{ inputs.BUILD_COMMAND }}"
+        echo "TEST_COMMAND: ${{ inputs.TEST_COMMAND }}"
       
   initialize:
     name: Initialize CI environment
@@ -54,7 +60,8 @@ jobs:
         path: ./*
         key: ${{ inputs.KEY }}-workspace
     - name: Build packages
-      run: yarn build
+      run: ${{ inputs.BUILD_COMMAND }}
+      shell: bash
     - uses: actions/cache/save@v4
       id: build-cache
       with:
@@ -77,13 +84,13 @@ jobs:
         path: ./*
         key: ${{ inputs.KEY }}-build
     - name: Run unit tests
-      run: yarn test
+      run: ${{ inputs.TEST_COMMAND }}
+      shell: bash
     - uses: actions/cache/save@v4
       id: build-cache
       with:
         path: ./*
         key: ${{ inputs.KEY }}-final
-
           
   sonarcloud:
     needs: [unit-tests]
@@ -136,8 +143,3 @@ jobs:
       with:
         recreate: true
         path: code-coverage-results.md
-    - name: Generate Converage and Test Badges
-      uses: gaelgirodon/ci-badges-action@v1.5.0
-      with:
-        gist-id: 202111948b143151aac80d6bcf2f603f
-        token: ${{ secrets.GIST_TOKEN }}
