@@ -88,7 +88,7 @@ jobs:
   sonarcloud:
     needs: [unit-tests]
     name: SonarCloud
-    if: inputs.REF == 'ref/heads/main' || inputs.EVENT == 'pull_request'
+    if: inputs.REF == 'refs/heads/main' || inputs.EVENT == 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/cache/restore@v4
