@@ -87,7 +87,7 @@ jobs:
   sonarcloud:
     needs: [unit-tests]
     name: SonarCloud
-    if: inputs.REF == 'ref/heads/main' || inputs.EVENT == 'pull_request'
+    if: ${{ inputs.REF }} == 'ref/heads/main' || ${{ inputs.EVENT }} == 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/cache/restore@v4
@@ -104,7 +104,7 @@ jobs:
     permissions:
       pull-requests: write
     needs: [unit-tests]
-    if: inputs.EVENT == 'pull_request'
+    if: $ {{ inputs.EVENT }} == 'pull_request'
     name: Code Coverage Reports
     runs-on: ubuntu-latest
     steps:
