@@ -5,6 +5,9 @@ on:
       KEY:
         required: true
         type: string
+      REF_NAME:
+        required: true
+        type: string
       EVENT:
         required: true
         type: string
@@ -74,7 +77,7 @@ jobs:
   sonarcloud:
     needs: [unit-tests]
     name: SonarCloud
-    if: github.ref == 'ref/heads/main' || inputs.EVENT == 'pull_request'
+    if: inputs.REF_NAME == 'ref/heads/main' || inputs.EVENT == 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/cache/restore@v4
