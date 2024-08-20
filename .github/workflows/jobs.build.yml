@@ -20,6 +20,16 @@ on:
         required: true
 
 jobs:
+  print-details:
+    runs-on: ubuntu-latest
+    name: Print execution details
+    steps:
+    - name: Print execution details
+      run: |    
+        echo "KEY: ${{ inputs.KEY }}"
+        echo "REF: ${{ inputs.REF }}"
+        echo "EVENT: ${{ inputs.EVENT }}"
+      
   initialize:
     name: Initialize CI environment
     uses: yaml-js/.github/.github/workflows/jobs.initialize-ci.yml@main
