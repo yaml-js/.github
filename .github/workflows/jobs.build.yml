@@ -74,7 +74,7 @@ jobs:
   sonarcloud:
     needs: [unit-tests]
     name: SonarCloud
-    if: ${{ github.ref == 'ref/head/master' || inputs.EVENT == 'pull_request' }}
+    if: github.ref == 'ref/heads/main' || inputs.EVENT == 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/cache/restore@v4
