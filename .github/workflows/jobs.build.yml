@@ -25,7 +25,8 @@ jobs:
     name: Print execution details
     steps:
     - name: Print execution details
-      run: |    
+      run: |
+        echo "Execution Context:"
         echo "KEY: ${{ inputs.KEY }}"
         echo "REF: ${{ inputs.REF }}"
         echo "EVENT: ${{ inputs.EVENT }}"
