@@ -1,4 +1,4 @@
-name: Run Tests and Execute Code Analisys
+name: Run Tests and Execute Code Analysis
 on:
   workflow_call:
     inputs:
@@ -9,9 +9,6 @@ on:
         required: true
         type: string
       EVENT:
-        required: true
-        type: string
-      BUILD_COMMAND:
         required: true
         type: string
       TEST_COMMAND:
