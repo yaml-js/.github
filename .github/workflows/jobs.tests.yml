@@ -24,29 +24,29 @@ on:
         required: true
 
 jobs:
- unit-tests:
-  name: Run Tests
-  runs-on: ubuntu-latest
-  steps:
-  - name: Enable Corepack
-    run: corepack enable
-  - name: Setup Node.js
-    uses: actions/setup-node@v4
-    with:
-      node-version: 22.x
-  - uses: actions/cache/restore@v4
-    with:
-      path: ./*
-      key: ${{ inputs.KEY }}-build
-  - name: Run unit tests
-    run: ${{ inputs.TEST_COMMAND }}
-    shell: bash
-  - uses: actions/cache/save@v4
-    id: build-cache
-    with:
-      path: ./*
-      key: ${{ inputs.KEY }}-final
-        
+  unit-tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Enable Corepack
+      run: corepack enable
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22.x
+    - uses: actions/cache/restore@v4
+      with:
+        path: ./*
+        key: ${{ inputs.KEY }}-build
+    - name: Run unit tests
+      run: ${{ inputs.TEST_COMMAND }}
+      shell: bash
+    - uses: actions/cache/save@v4
+      id: build-cache
+      with:
+        path: ./*
+        key: ${{ inputs.KEY }}-final
+          
   sonarcloud:
     needs: [unit-tests]
     name: Execute Code Analysis (SonarCloud)
