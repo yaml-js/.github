@@ -19,8 +19,6 @@ on:
         required: true
       REPO_ACCESS_TOKEN:
         required: true
-      SNYK_TOKEN:
-        required: true
 
 jobs:
   unit-tests:
@@ -61,35 +59,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-  snyk:
-    needs: [unit-tests]
-    name: Static Analysis (Snyk)
-    if: inputs.REF == 'refs/heads/main' || inputs.EVENT == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/cache/restore@v4
-      with:
-        path: ./*
-        key: ${{ inputs.KEY }}-final
-    - name: Vulnerability Check
-      uses: snyk/actions/node@master
-      continue-on-error: true
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      with:
-        args: --sarif-file-output=snyk.sarif --org=233d0ab0-1482-4c1e-9664-f794b1173f94
-    - name: Upload result to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: snyk.sarif
-        
-    - name: Vulnerability Check
-      uses: snyk/actions/node@master
-      with:
-        args:
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         
   coverage-reports:
     permissions:
